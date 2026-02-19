@@ -41,7 +41,7 @@ public class ReservationBook {
 	 */
 	public void add(Reservation r) {
 
-		if(r == null) {
+		if((r == null) || (count >= reservations.length)) {
 			
 			throw new IllegalArgumentException("err: add: @param r must not be null");
 		}
@@ -53,23 +53,48 @@ public class ReservationBook {
 	
 	// findById(int id) returns the matching reservation or null if not found 
 	/** 
-	 * 
+	 * findById() finds the id of the Reservation 
 	 * @param id is Reservation id
-	 * @return
+	 * @return Reservation if found else returns null if not found
 	 */
 	public Reservation findById(int id) {
 		
 		// just searches for Reservation r with r.id
 		for(int i = 0; i < count; i++) {
 			
-			if(Reservations[i].getId)
+			if(reservations[i].getById() == id) {
+				return reservations[i];
+			}
 		}
 		
-		
+		// not found 
 		return null; 
 	}
 	
-	// printAll() prints all stored reservations (one per line) -> system.out.print
+	/**
+	 * printAll() prints all stored reservations (one per line) -> system.out.print
+	 */
+	public void printAll() {
+		
+		// loops through the reservations and prints out the reservations[i].toString() but stops at null
+		for(int i = 0; i < count; i++) {
+			System.out.println(reservations[i].toString()); 
+		}
+	}
 	
-	// printForRoom(Room room) prints reservations for that room 
-}
+	/**
+	 * printForRoom(Room room) prints reservations for that room 
+	 * @param room is what room to get data from
+	 */
+	public void printForRoom(Room room) {
+		
+		// search for correct room 
+		for(int i = 0; i < count; i++) {
+			
+			// check all reservations 
+			if(reservations[i].getByRoom() == room) {
+				System.out.println(reservations[i]); 
+			}
+		}
+	}
+} // end of ReservationBook.java

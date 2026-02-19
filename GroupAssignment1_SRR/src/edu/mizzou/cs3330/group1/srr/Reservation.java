@@ -36,6 +36,7 @@ public class Reservation {
 			room = room1;
 			id = id1;
 			timeSlot = time;
+			
 		} else {
 			
 			throw new IllegalArgumentException("Err: One of the Reservation(prams) is illegal");
@@ -78,6 +79,14 @@ public class Reservation {
 	 */
 	public int getById() {
 		return id; 
+	}
+	
+	/**
+	 * getByRoom() returns the Room room
+	 * @return a Room object
+	 */
+	public Room getByRoom() {
+		return room; 
 	}
 	
 	@Override
