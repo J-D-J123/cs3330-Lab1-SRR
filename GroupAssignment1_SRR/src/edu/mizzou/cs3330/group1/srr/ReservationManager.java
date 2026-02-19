@@ -1,3 +1,5 @@
+//package edu.mizzou.cs3330.group1.srr;
+
 /**
  * File:		ReservationManager.java
  * Date:		02/18/2026
@@ -5,7 +7,7 @@
  * 				which creates, cancels, prints, and checks in reservations.
  * 				It should not own more than it needs to.
  */
-package edu.mizzou.cs3330.group1.srr;
+
 
 public class ReservationManager {
 
