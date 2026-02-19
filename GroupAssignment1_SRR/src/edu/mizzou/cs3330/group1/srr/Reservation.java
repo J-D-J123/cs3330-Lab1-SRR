@@ -9,6 +9,7 @@ public class Reservation {
 	private boolean canceled = false;
 	private boolean checkedIn = false;
 	
+	// Constructs a Reservation with a positive id, non-null room, non-blank student name, and non-null time slot
 	public Reservation(int id1, Room room1, String studentName1, TimeSlot time) {
 		
 //		if(id1 <= 0) {
@@ -27,9 +28,9 @@ public class Reservation {
 //			throw new IllegalArgumentException("There needs to be a time slot");
 //		}
 		
-		// simpler approactch make sure each value is there and required to make the Reservation object 
+		// simpler approach to make sure each value is there and required to make the Reservation object 
 		if ((id1 > 0) && (room1 != null) && (studentName1 != null) && 
-				(studentName1.isBlank()) && (time == null)) {
+				(!studentName1.isBlank()) && (time != null)) {
 			
 			// now store the data
 			studentName = studentName1;
@@ -43,6 +44,7 @@ public class Reservation {
 		}
 	}
 	
+	// Marks the reservation as canceled if it has not already been checked in or canceled
 	public void cancel() {
 		if(checkedIn == true) { //you can't cancel if you've already checked in
 			throw new IllegalArgumentException("Cannot cancel after checking in");
@@ -53,6 +55,7 @@ public class Reservation {
 		canceled = true;
 	}
 	
+	// Marks the reservation as checked in if it has not already been canceled or checked in
 	public void checkIn() {
 		if(canceled == true) { //you can't check in if your reservation is canceled
 			throw new IllegalArgumentException("This reservation was canceled");
@@ -63,7 +66,8 @@ public class Reservation {
 		checkedIn = true;
 	}
 	
-	public String getStatus() { //this is just to help with the output for the toString
+	// Returns the current status as a string: "Checked in", "Canceled", or "Pending Status"
+	public String getStatus() {
 		if(checkedIn == true) {
 			return "Checked in";
 		}
@@ -73,22 +77,19 @@ public class Reservation {
 		return "Pending Status";
 	}
 	
-	/**
-	 * getById() gets the private int id of the Reservation
-	 * @return an int
-	 */
+
+//	getById() gets the private int id of the Reservation
 	public int getById() {
 		return id; 
 	}
 	
-	/**
-	 * getByRoom() returns the Room room
-	 * @return a Room object
-	 */
-	public Room getByRoom() {
+	
+//	getByRoom() returns the Room room
+	 public Room getByRoom() {
 		return room; 
 	}
 	
+	// Returns a readable summary of the reservation including id, student, room, time slot, and status
 	@Override
 	public String toString() {
 		return ("ID: " + id + ", Student: " + studentName + ", Room: " + room.toString() + ", Time Slot: " + timeSlot.toString() + ", Status: " + getStatus());
