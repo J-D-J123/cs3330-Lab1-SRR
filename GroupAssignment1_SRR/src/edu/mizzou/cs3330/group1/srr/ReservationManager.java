@@ -1,3 +1,10 @@
+/**
+ * File:		ReservationManager.java
+ * Date:		02/18/2026
+ * Desc:		This file creates the ReservationManager class
+ * 				which creates, cancels, prints, and checks in reservations.
+ * 				It should not own more than it needs to.
+ */
 package edu.mizzou.cs3330.group1.srr;
 
 public class ReservationManager {
@@ -36,24 +43,26 @@ public class ReservationManager {
 	 * cancelReservation(int id) cancels the reservation with the given ID.
 	 * @param id is the Reservation id
 	 */
-	public void cancelReservation(int id) {
+	public boolean cancelReservation(int id) {
 		Reservation reservation = book.findById(id);
 		if (reservation == null) {
 			throw new IllegalArgumentException("No reservation found with ID: " + id);
 		}
 		reservation.cancel();
+		return true;
 	}
 
 	/**
 	 * checkInReservation(int id) checks in the reservation with the given ID.
 	 * @param id is the Reservation id
 	 */
-	public void checkInReservation(int id) {
+	public boolean checkInReservation(int id) {
 		Reservation reservation = book.findById(id);
 		if (reservation == null) {
 			throw new IllegalArgumentException("No reservation found with ID: " + id);
 		}
 		reservation.checkIn();
+		return true;
 	}
 
 	/**

@@ -39,7 +39,7 @@ public class ReservationBook {
 	 * will not add r if it is null 
 	 * @param r is the Reservation that will be added to the Reservations
 	 */
-	public void add(Reservation r) {
+	public boolean add(Reservation r) {
 
 		if((r == null) || (count >= reservations.length)) {
 			
@@ -49,6 +49,7 @@ public class ReservationBook {
 		// add reservation to the Reservations array & incurment count
 		reservations[count] = r; 
 		count++; 
+		return true;
 	}
 	
 	// findById(int id) returns the matching reservation or null if not found 

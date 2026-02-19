@@ -53,7 +53,7 @@ public class Reservation {
 	/**
 	 * cancel() marks the reservation as canceled if it has not already been checked in or canceled
 	 */
-	public void cancel() {
+	public boolean cancel() {
 		if(checkedIn == true) { //you can't cancel if you've already checked in
 			throw new IllegalArgumentException("Cannot cancel after checking in");
 		}
@@ -61,12 +61,13 @@ public class Reservation {
 			throw new IllegalArgumentException("It's already canceled");
 		}
 		canceled = true;
+		return true;
 	}
 	
 	/**
 	 * checkIn() marks the reservation as checked in if it has not already been canceled or checked in
 	 */
-	public void checkIn() {
+	public boolean checkIn() {
 		if(canceled == true) { //you can't check in if your reservation is canceled
 			throw new IllegalArgumentException("This reservation was canceled");
 		}
@@ -74,6 +75,7 @@ public class Reservation {
 			throw new IllegalArgumentException("The reservation has already been checked in");
 		}
 		checkedIn = true;
+		return true;
 	}
 	
 	/**
