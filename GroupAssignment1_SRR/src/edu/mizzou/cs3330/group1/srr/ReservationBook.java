@@ -4,8 +4,8 @@ package edu.mizzou.cs3330.group1.srr;
  * File:		ReservationBook.java
  * Date:		02/18/2026
  * Desc:		This class stores reservations and OWNS them. 
- * 				It should NOT coordinate the whole application, it 
- * 				should manage reservation storage and basic queries.
+ * 					It should NOT coordinate the whole application, it 
+ * 					should manage reservation storage and basic queries.
  */
 public class ReservationBook {
 
