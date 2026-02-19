@@ -46,7 +46,7 @@ public class Reservation {
 			
 		} else {
 			
-			throw new IllegalArgumentException("Err: One of the Reservation(prams) is illegal");
+			throw new IllegalArgumentException("Err: Invalid reservation params");
 		}
 	}
 	
