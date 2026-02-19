@@ -28,11 +28,11 @@ public class Main {
 		ReservationManager manager = new ReservationManager(10);
 
 		// Create 5 reservations across different rooms and time slots
-		int id1 = manager.createReservation(room101, "Alice Johnson", new TimeSlot(9));
-		int id2 = manager.createReservation(room101, "Bob Smith", new TimeSlot(10));
-		int id3 = manager.createReservation(room202, "Carol Davis", new TimeSlot(13));
-		int id4 = manager.createReservation(room202, "Dan Lee", new TimeSlot(14));
-		int id5 = manager.createReservation(room101, "Eve Martin", new TimeSlot(15));
+		int id1 = manager.createReservation(room101, "Jack Belleville", new TimeSlot(9));
+		int id2 = manager.createReservation(room101, "Joey Johnson", new TimeSlot(10));
+		int id3 = manager.createReservation(room202, "Tucker Potts", new TimeSlot(13));
+		int id4 = manager.createReservation(room202, "John Cena", new TimeSlot(14));
+		int id5 = manager.createReservation(room101, "John Smith", new TimeSlot(15));
 		int id6 = manager.createReservation(room303, "Abe Lincolin", new TimeSlot(12));
 		
 		// illegal test cases 
