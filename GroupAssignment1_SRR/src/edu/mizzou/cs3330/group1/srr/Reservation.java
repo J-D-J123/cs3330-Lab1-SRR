@@ -72,6 +72,14 @@ public class Reservation {
 		return "Pending Status";
 	}
 	
+	/**
+	 * getById() gets the private int id of the Reservation
+	 * @return an int
+	 */
+	public int getById() {
+		return id; 
+	}
+	
 	@Override
 	public String toString() {
 		return ("ID: " + id + ", Student: " + studentName + ", Room: " + room.toString() + ", Time Slot: " + timeSlot.toString() + ", Status: " + getStatus());
