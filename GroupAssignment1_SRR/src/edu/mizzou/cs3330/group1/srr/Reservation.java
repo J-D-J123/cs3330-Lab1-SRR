@@ -10,6 +10,7 @@ public class Reservation {
 	private boolean checkedIn = false;
 	
 	public Reservation(int id1, Room room1, String studentName1, TimeSlot time) {
+		
 //		if(id1 <= 0) {
 //			throw new IllegalArgumentException("Id must be greater than 0");
 //		}

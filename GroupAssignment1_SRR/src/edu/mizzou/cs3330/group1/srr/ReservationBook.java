@@ -11,30 +11,36 @@ package edu.mizzou.cs3330.group1.srr;
 
 public class ReservationBook {
 
-	private Reservation[] 	reservations; 
+	private Reservation[] 		reservations; 
 	private int 				count; 
 	
 	// Constructor creates an empty book with a fixed maximum capacity > 0 
 	public ReservationBook(int maximumCapacity) {
 		
-		// if maxCapacity is <= 0 do not make 
-		if(maximumCapacity <= 0) {
+		// if maxCapacity is > 0 make the reservations array
+		if(maximumCapacity > 0) {
 			
-			// print err in system 
-			System.err.println("Unable to create Reservation Book with size" + 
-					maximumCapacity);
+			reservations = new Reservation[maximumCapacity]; 
+			count        = 0; 
 			
-			return; 
+		} else {
+			
+			// throw illegal argument exception 
+			throw new IllegalArgumentException("err: ReservationBook: maximumCapacity must be positive");
 		}
-		
-		// make the empty book aka empty array of reservations 
 	}
 	
 	// add(Reservation r) adds if space exists otherwise throws an exception 
 	public void add(Reservation r) {
+
+		if(r == null) {
+			
+			throw new IllegalArgumentException("err: add: @param r must not be null");
+		}
 		
-		// add Reservation r to the reservations array
-		// if not throw an error 
+		// add reservation to the Reservations array & incurment count
+		reservations[count] = r; 
+		count++; 
 	}
 	
 	// findById(int id) returns the matching reservation or null if not found 
