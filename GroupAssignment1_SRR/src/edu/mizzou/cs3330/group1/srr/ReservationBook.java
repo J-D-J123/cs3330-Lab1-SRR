@@ -9,19 +9,22 @@ package edu.mizzou.cs3330.group1.srr;
  */
 public class ReservationBook {
 
-	private Reservation[] reservations; 
-	private int count; 
+	private Reservation[] 		reservations; 
+	private int 				count; 
 	
-// Constructor creates an empty book with a fixed maximum capacity > 0 
-	//	ReservationBook constructor creates an empty ReservationBook with a fixed 
-	//	maximum capacity that is greater than 0 at all times 
+	// Constructor creates an empty book with a fixed maximum capacity > 0 
+	/**
+	 * ReservationBook constructor creates an empty ReservationBook with a fixed 
+	 * maximum capacity that is greater than 0 at all times 
+	 * @param maximumCapacity the maximum amount of Reservation in reservations 
+	 */
 	public ReservationBook(int maximumCapacity) {
 		
 		// if maxCapacity is > 0 make the reservations array
 		if(maximumCapacity > 0) {
 			
 			reservations = new Reservation[maximumCapacity]; 
-			count = 0; 
+			count        = 0; 
 			
 		} else {
 			
@@ -30,9 +33,12 @@ public class ReservationBook {
 		}
 	}
 	
-
-//	Adds a Reservation to the Reservations array 
-//	will not add r if it is null 
+	// add(Reservation r) adds if space exists otherwise throws an exception 
+	/**
+	 * Adds a Reservation to the Reservations array 
+	 * will not add r if it is null 
+	 * @param r is the Reservation that will be added to the Reservations
+	 */
 	public void add(Reservation r) {
 
 		if((r == null) || (count >= reservations.length)) {
@@ -46,6 +52,11 @@ public class ReservationBook {
 	}
 	
 	// findById(int id) returns the matching reservation or null if not found 
+	/** 
+	 * findById() finds the id of the Reservation 
+	 * @param id is Reservation id
+	 * @return Reservation if found else returns null if not found
+	 */
 	public Reservation findById(int id) {
 		
 		// just searches for Reservation r with r.id
@@ -60,8 +71,9 @@ public class ReservationBook {
 		return null; 
 	}
 	
-
-//	printAll() prints all stored reservations (one per line) -> system.out.print
+	/**
+	 * printAll() prints all stored reservations (one per line) -> system.out.print
+	 */
 	public void printAll() {
 		
 		// loops through the reservations and prints out the reservations[i].toString() but stops at null
@@ -70,7 +82,10 @@ public class ReservationBook {
 		}
 	}
 	
-//	printForRoom(Room room) prints reservations for that room 
+	/**
+	 * printForRoom(Room room) prints reservations for that room 
+	 * @param room is what room to get data from
+	 */
 	public void printForRoom(Room room) {
 		
 		// search for correct room 
@@ -82,4 +97,4 @@ public class ReservationBook {
 			}
 		}
 	}
-}
+} // end of ReservationBook.java
