@@ -1,7 +1,8 @@
 package edu.mizzou.cs3330.group1.srr;
 
 public class Reservation {
-  private int id;
+	
+	private int id;
 	private Room room;
 	private String studentName;
 	private TimeSlot timeSlot;
@@ -9,25 +10,35 @@ public class Reservation {
 	private boolean checkedIn = false;
 	
 	public Reservation(int id1, Room room1, String studentName1, TimeSlot time) {
-		if(id1 <= 0) {
-			throw new IllegalArgumentException("Id must be greater than 0");
-		}
-		id = id1;
+//		if(id1 <= 0) {
+//			throw new IllegalArgumentException("Id must be greater than 0");
+//		}
+//		
+//		if(room1 == null) {
+//			throw new IllegalArgumentException("Need a room or I can't help you");
+//		}
+//		
+//		if(studentName1 == null || studentName1.isBlank()) {
+//			throw new IllegalArgumentException("There needs to be a name");
+//		}
+//		
+//		if(time == null) {
+//			throw new IllegalArgumentException("There needs to be a time slot");
+//		}
 		
-		if(room1 == null) {
-			throw new IllegalArgumentException("Need a room or I can't help you");
+		// simpler approactch make sure each value is there and required to make the Reservation object 
+		if ((id1 > 0) && (room1 != null) && (studentName1 != null) && 
+				(studentName1.isBlank()) && (time == null)) {
+			
+			// now store the data
+			studentName = studentName1;
+			room = room1;
+			id = id1;
+			timeSlot = time;
+		} else {
+			
+			throw new IllegalArgumentException("Err: One of the Reservation(prams) is illegal");
 		}
-		room = room1;
-		
-		if(studentName1 == null || studentName1.isBlank()) {
-			throw new IllegalArgumentException("There needs to be a name");
-		}
-		studentName = studentName1;
-		
-		if(time == null) {
-			throw new IllegalArgumentException("There needs to be a time slot");
-		}
-		timeSlot = time;
 	}
 	
 	public void cancel() {
