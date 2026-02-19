@@ -5,8 +5,10 @@ public class ReservationManager {
 	private ReservationBook book;
 	private int nextId;
 
-	
-//	Constructs a ReservationManager with a ReservationBook of the given capacity.
+	/**
+	 * ReservationManager() constructs a ReservationManager with a ReservationBook of the given capacity.
+	 * @param maxReservations the maximum amount of Reservation
+	 */
 	public ReservationManager(int maxReservations) {
 		if (maxReservations <= 0) {
 			throw new IllegalArgumentException("Max reservations must be positive");
@@ -15,8 +17,13 @@ public class ReservationManager {
 		nextId = 1;
 	}
 
-
-//	Creates a new reservation with an auto-generated ID and adds it to the book.
+	/**
+	 * createReservation(...) Creates a new reservation with an auto-generated ID and adds it to the book.
+	 * @param room is the Room for that Reservation
+	 * @param studentName is the student who made the Reservation
+	 * @param slot is the time of the Reservation
+	 * @return the id of the Reservation
+	 */
 	public int createReservation(Room room, String studentName, TimeSlot slot) {
 		int id = nextId;
 		nextId++;
@@ -25,7 +32,10 @@ public class ReservationManager {
 		return id;
 	}
 
-//	Cancels the reservation with the given ID.
+	/**
+	 * cancelReservation(int id) cancels the reservation with the given ID.
+	 * @param id is the Reservation id
+	 */
 	public void cancelReservation(int id) {
 		Reservation reservation = book.findById(id);
 		if (reservation == null) {
@@ -34,7 +44,10 @@ public class ReservationManager {
 		reservation.cancel();
 	}
 
-//	Checks in the reservation with the given ID.
+	/**
+	 * checkInReservation(int id) checks in the reservation with the given ID.
+	 * @param id is the Reservation id
+	 */
 	public void checkInReservation(int id) {
 		Reservation reservation = book.findById(id);
 		if (reservation == null) {
@@ -43,13 +56,17 @@ public class ReservationManager {
 		reservation.checkIn();
 	}
 
-	
-//	Prints all reservations stored in the book.
+	/**
+	 * printAllReservations() prints all reservations stored in the book.
+	 */
 	public void printAllReservations() {
 		book.printAll();
 	}
 
-//	Prints all reservations for a specific room.
+	/**
+	 * printReservationsForRoom(Room room) prints all reservations for a specific room
+	 * @param room
+	 */
 	public void printReservationsForRoom(Room room) {
 		book.printForRoom(room);
 	}
